@@ -620,3 +620,36 @@ body,
   .js .loader { transition: opacity .3s ease, visibility 0s linear .3s; }
   .js .loader.out { transform: none; }
 }
+
+/* ============ Velvané studio mark ============ */
+.brand { display: inline-flex; align-items: baseline; gap: .28em; white-space: nowrap; }
+.brand-x { font-family: var(--mono); font-size: .55em; font-weight: 400; color: var(--accent); transform: translateY(-.1em); }
+.brand-studio {
+  font-family: var(--serif); font-weight: 400; font-size: .52em;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);
+}
+.loader-by {
+  margin: 2px 0 8px;
+  font-family: var(--serif); font-size: 13px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--graphite);
+  opacity: 0; animation: fade-in .8s 1.6s ease forwards;
+}
+.loader-by span { color: var(--accent); }
+@keyframes fade-in { to { opacity: 1; } }
+.foot-studio { margin: 0 0 10px; font-family: var(--serif); font-size: 17px; color: var(--ink-soft); }
+.foot-studio a {
+  color: var(--accent); text-decoration: none; letter-spacing: .06em;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1.5px no-repeat;
+  padding-bottom: 1px;
+}
+.foot-studio a:hover { background-size: 0 1.5px; background-position: 100% 100%; transition: background-size .3s ease; }
+.foot-legal {
+  max-width: 560px; margin: 18px auto 0;
+  font-family: var(--mono); font-size: 14px; line-height: 1.5; color: var(--graphite);
+}
+@media (max-width: 560px) {
+  .brand { font-size: 26px; }
+  .brand-studio { display: none; }
+  .brand-x { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .loader-by { animation: none; opacity: 1; } }
