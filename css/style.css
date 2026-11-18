@@ -624,17 +624,16 @@ body,
 /* ============ Velvané studio mark ============ */
 .brand { display: inline-flex; align-items: baseline; gap: .28em; white-space: nowrap; }
 .brand-x { font-family: var(--mono); font-size: .55em; font-weight: 400; color: var(--accent); transform: translateY(-.1em); }
-.brand-studio {
-  font-family: var(--serif); font-weight: 400; font-size: .52em;
-  letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);
-}
+.brand-studio { display: inline-flex; color: var(--ink-soft); }
+.brand-studio .velvane-logo { height: 13px; }
 .loader-by {
   margin: 2px 0 8px;
   font-family: var(--serif); font-size: 13px; letter-spacing: .2em; text-transform: uppercase;
   color: var(--graphite);
   opacity: 0; animation: fade-in .8s 1.6s ease forwards;
 }
-.loader-by span { color: var(--accent); }
+.loader-by { display: flex; justify-content: center; align-items: center; gap: .7em; }
+.loader-by .velvane-logo { height: 11px; color: var(--ink); }
 @keyframes fade-in { to { opacity: 1; } }
 .foot-studio { margin: 0 0 10px; font-family: var(--serif); font-size: 17px; color: var(--ink-soft); }
 .foot-studio a {
@@ -653,3 +652,9 @@ body,
   .brand-x { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .loader-by { animation: none; opacity: 1; } }
+
+/* Velvané's own wordmark, used exactly as drawn; only its height and colour adapt */
+.velvane-logo { display: inline-block; width: auto; vertical-align: middle; overflow: visible; }
+.foot-studio a { background: none; padding: 0 0 0 .3em; display: inline-flex; vertical-align: middle; color: var(--ink); }
+.foot-studio a .velvane-logo { height: 13px; }
+.foot-studio a:hover { color: var(--accent); background: none; }
