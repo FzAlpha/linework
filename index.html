@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linework</title>
+  <meta name="description" content="Ten hand-drawn artworks, redrawn stroke by stroke in front of you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    document.documentElement.classList.add('js', 'is-loading');
+    // Safety net: never leave the page behind the loader if a script fails
+    setTimeout(function () {
+      var l = document.getElementById('loader');
+      if (l) l.classList.add('out');
+      document.documentElement.classList.remove('is-loading');
+    }, 12000);
+  </script>
+</head>
+<body>
+  <!-- Loading screen: a little sketch draws itself while fonts and the first drawing load -->
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <div class="loader-card">
+      <svg class="loader-sketch" viewBox="0 0 200 150" aria-hidden="true">
+        <path pathLength="1" class="ls ls-1" d="M20 128 C60 124, 140 126, 182 129"/>
+        <path pathLength="1" class="ls ls-2" d="M140 24 C153 23, 163 34, 162 46 C161 60, 150 69, 139 68 C126 67, 117 57, 118 45 C119 33, 129 24, 142 25"/>
+        <path pathLength="1" class="ls ls-3" d="M147 30 L158 41 M144 35 L160 51 M142 43 L157 58 M142 52 L150 60"/>
+        <path pathLength="1" class="ls ls-4" d="M22 128 L52 80 L66 96 L86 70 L110 110 L122 98 L144 128 M52 80 L46 100 M86 70 L80 96 M86 70 L92 92"/>
+        <path pathLength="1" class="ls ls-5" d="M168 128 L168 118 M168 90 L159 105 L163 105 L155 118 L181 118 L173 105 L177 105 Z"/>
+        <path pathLength="1" class="ls ls-6" d="M38 36 l5 0 M40.5 33.5 l0 5 M72 22 l4 0 M74 20 l0 4 M104 44 l3 0 M105.5 42.5 l0 3"/>
+      </svg>
+      <p class="loader-word">Linework</p>
+      <p class="loader-msg"><span id="loader-msg">Sharpening the pencil</span><span class="loader-dots" aria-hidden="true"></span></p>
+      <svg class="loader-bar" viewBox="0 0 240 16" preserveAspectRatio="none" aria-hidden="true">
+        <path class="lb-track" d="M4 9 C50 6, 90 11, 130 8 S200 10, 236 8"/>
+        <path class="lb-fill" id="loader-fill" pathLength="100" d="M4 9 C50 6, 90 11, 130 8 S200 10, 236 8"/>
+      </svg>
+      <p class="loader-pct"><span id="loader-pct">0</span>%</p>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top">Linework</a>
+    <nav>
+      <a href="#gallery">Gallery</a>
+      <a href="#process">Process</a>
+      <a href="#credits">Credits</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero: the castle draws itself on load -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">A sketchbook of ten drawings</p>
+        <h1 class="handwrite" aria-label="Drawn by hand">
+          <span class="hw-line" style="--d:.2s">Drawn</span>
+          <span class="hw-line" style="--d:.9s">by hand.</span>
+        </h1>
+        <p class="lede">Every picture here was made by a real artist with pen, ink or graphite. Watch each one come back to life the way it was made: a loose lay-in, then contours, then hatching, then tone.</p>
+        <div class="hero-status" aria-live="polite">
+          <span class="dot"></span><span id="hero-phase">Sharpening the pencil…</span>
+        </div>
+        <a class="scroll-cue" href="#gallery">Open the sketchbook <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hero-art">
+        <div class="frame">
+          <div class="tape tape-l"></div><div class="tape tape-r"></div>
+          <div class="sk-stage" id="hero-stage" data-id="castle" role="img" aria-label="Moonlit Castle, a pen and ink drawing, being drawn"></div>
+        </div>
+        <figcaption><span class="hand">Plate I.</span> Moonlit Castle <button class="link-btn" data-open="castle">look closer</button></figcaption>
+      </figure>
+    </section>
+
+    <section id="gallery" class="gallery" aria-label="Gallery">
+      <header class="section-head">
+        <p class="eyebrow">The plates</p>
+        <h2>Nine more, drawn as you arrive</h2>
+        <p class="section-sub">Scroll slowly. Each drawing starts when it comes into view and pauses when it leaves.</p>
+      </header>
+      <div id="plates"></div>
+    </section>
+
+    <section id="process" class="process">
+      <header class="section-head">
+        <p class="eyebrow">How it is drawn</p>
+        <h2>Four passes, like a real page</h2>
+      </header>
+      <ol class="steps">
+        <li>
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 48 C20 20, 40 14, 56 22" class="draw-me"/><path d="M12 54 C26 34, 44 36, 54 44" class="draw-me" style="--dl:.4s"/></svg>
+          <h3>Lay-in</h3>
+          <p>A light graphite pass blocks in the big shapes first, just like an artist checking proportions.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 52 L32 12 L54 52 Z" class="draw-me ink"/></svg>
+          <h3>Contours</h3>
+          <p>The longest, most important lines go down in ink, traced from the original drawing’s edges.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M12 14 L52 14 M12 22 L52 22 M12 30 L52 30 M12 38 L52 38 M12 46 L52 46" class="draw-me ink"/></svg>
+          <h3>Hatching</h3>
+          <p>Thousands of short strokes follow, ordered so the pen moves to the nearest unfinished line.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 20 C18 10, 30 30, 44 18 S58 22, 58 22 M6 36 C18 26, 30 46, 44 34 S58 38, 58 38" class="draw-me wash"/></svg>
+          <h3>Tone</h3>
+          <p>A soft brush sweeps across the page, washing in the artist’s real shading, then the ink settles back.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="credits" class="credits">
+      <header class="section-head">
+        <p class="eyebrow">Credits</p>
+        <h2>The artists did the hard part</h2>
+        <p class="section-sub">These drawings were found on Pinterest and belong to their original artists. Only the animation is new. Signatures are noted where they appear on the work; follow the links to see each original.</p>
+      </header>
+      <ol class="credit-list" id="credit-list"></ol>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="hand">Made with ink, patience and a little JavaScript.</p>
+    <button class="link-btn" id="motion-toggle" type="button">Skip animations</button>
+  </footer>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lb-title">
+    <div class="lb-inner">
+      <div class="lb-art">
+        <button class="lb-nav lb-prev" type="button" aria-label="Previous drawing">‹</button>
+        <div class="lb-stage-wrap"><div class="sk-stage" id="lb-stage"></div></div>
+        <button class="lb-nav lb-next" type="button" aria-label="Next drawing">›</button>
+      </div>
+      <aside class="lb-side">
+        <button class="lb-close" type="button" aria-label="Close">×</button>
+        <p class="eyebrow" id="lb-plate"></p>
+        <h2 id="lb-title"></h2>
+        <p class="lb-medium" id="lb-medium"></p>
+        <p class="lb-note" id="lb-note"></p>
+        <div class="lb-progress"><div class="bar" id="lb-bar"></div></div>
+        <p class="lb-phase" id="lb-phase" aria-live="polite"></p>
+        <div class="lb-controls">
+          <button class="btn" id="lb-replay" type="button">↺ Replay</button>
+          <button class="btn ghost" id="lb-final" type="button">Show finished</button>
+        </div>
+        <div class="speed" role="group" aria-label="Drawing speed">
+          <span>Speed</span>
+          <button type="button" data-speed="0.5">½×</button>
+          <button type="button" data-speed="1" class="on">1×</button>
+          <button type="button" data-speed="2">2×</button>
+          <button type="button" data-speed="4">4×</button>
+        </div>
+        <p class="lb-keys">← → to browse · Space to replay · Esc to close</p>
+      </aside>
+    </div>
+  </dialog>
+
+  <script src="js/artworks.js"></script>
+  <script src="js/sketch-engine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
